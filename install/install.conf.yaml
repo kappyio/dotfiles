@@ -1,0 +1,18 @@
+- clean: ['~']
+
+- link:
+    ~/.profile: profile
+    ~/.bashrc: bashrc
+    ~/.bash_logout: bash_logout
+    ~/.vim:
+    ~/.htoprc:
+    ~/.tmux.conf:
+    ~/bin:
+    ~/.zshrc:
+    ~/.cheat:
+    ~/.irssi:
+    ~/.zprofile:
+    ~/.gitignore_global:
+    ~/.vimrc:
+    ~/.bash_profile:
+    ~/.gitconfig:
