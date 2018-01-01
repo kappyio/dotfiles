@@ -3,6 +3,10 @@
 # 2: clone personal dotfiles repo
 # 3: symlink dotfiles
 
+case $OSTYPE in darwin*) echo I am a Mac ;; esac
+case $OSTYPE in linux*) echo I am Linux ;; esac
+
+
 if [ -f ~/.dotfiles ]; then
     echo "dotfiles dir found"
 else
