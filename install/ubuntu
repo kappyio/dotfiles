@@ -16,3 +16,8 @@ do
 	    sudo apt-get -y install $i
 	fi
 done
+
+
+curl -fsSLO https://raw.githubusercontent.com/Vaelatern/init-dotfiles/master/init_dotfiles.sh
+chmod +x ./init_dotfiles.sh
+./init_dotfiles.sh
