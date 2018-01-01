@@ -4,15 +4,15 @@
     ~/.profile: profile
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
-    ~/.vim:
-    ~/.htoprc:
-    ~/.tmux.conf:
-    ~/bin:
-    ~/.zshrc:
-    ~/.cheat:
-    ~/.irssi:
-    ~/.zprofile:
-    ~/.gitignore_global:
-    ~/.vimrc:
-    ~/.bash_profile:
-    ~/.gitconfig:
+    ~/.vim: vim/vim
+    ~/.htoprc: htop/htoprc
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/bin: bin
+    ~/.zshrc: zsh/zshrc
+    ~/.cheat: cheat/cheat
+    ~/.irssi: irssi/irssi
+    ~/.zprofile: zsh/zprofile
+    ~/.gitignore_global: git/gitignore_global
+    ~/.vimrc: vim/vimrc
+    ~/.bash_profile: bash/bash_profile
+    ~/.gitconfig: git/gitconfig

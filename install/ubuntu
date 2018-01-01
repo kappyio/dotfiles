@@ -4,6 +4,7 @@ sudo apt-get update; sudo apt-get dist-upgrade; sudo apt-get upgrade
 declare -a apps_arr=( "ack-grep"
                       "curl"
                       "git" 
+                      "python-pip"
                       "vim" 
 		      "zsh" 
                     )
