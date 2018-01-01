@@ -1,0 +1,17 @@
+sudo apt-get install ubuntu-restricted-extras
+sudo apt-get update; sudo apt-get dist-upgrade; sudo apt-get upgrade
+
+declare -a apps_arr=( "ack-grep"
+                      "curl"
+                      "git" 
+                      "vim" 
+		      "zsh" 
+                    )
+
+for i in "${apps_arr[@]}"
+do
+	if [ $(dpkg-query -W -f='${Status}' $i 2>/dev/null | grep -c "ok $i installed") -eq 0 ]; then
+            echo "installing $i"
+	    sudo apt-get install $i
+	fi
+done
