@@ -49,15 +49,30 @@ let g:solarized_contrast = "high"
 colorscheme solarized
 let g:solarized_termtrans = 1
 
+" golang
+let g:golang_goroot = "${HOME}/go"
 
 "Vundle
 set nocompatible
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'rodnaph/vim-color-schemes'
-Bundle 'puppetlabs/puppet-syntax-vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'rjohnsondev/vim-compiler-go'
+Bundle 'fatih/vim-go'
+Bundle 'dgryski/vim-godef'
+Bundle 'hashivim/vim-hashicorp-tools'
+Bundle 'fatih/vim-hclfmt'
+Bundle 'elzr/vim-json'
+Bundle 'tpope/vim-sensible'
+Bundle 'juliosueiras/vim-terraform-completion'
+Bundle 'vim-perl/vim-perl'
+Bundle 'wincent/command-t'
+Bundle 'Valloric/YouCompleteMe'
 
 " Below is from learn Puppet VM
 " turn off auto adding comments on next line
@@ -82,9 +97,8 @@ au BufRead,BufNewFile *_spec.rb
 au BufRead,BufNewFile *.erb
   \ set filetype=ruby
 
-"Begin powerline
-"source /usr/share/vim/vimfiles/plugin/powerline.vim
-source ${HOME}/git/dotfiles/vim/plugin/powerline.vim
+" Begin powerline
+source $HOME/git/dotfiles/vudkapz/dotfiles/vim/.vim/plugin/powerline.vim
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
@@ -93,3 +107,12 @@ if $VIM_CRONTAB == "true"
     set nobackup
     set nowritebackup
 endif
+" Below are pep8 settings, if not set above
+" au BufNewFile,BufRead *.py
+"     \ set tabstop=4
+"     \ set softtabstop=4
+"     \ set shiftwidth=4
+"     \ set textwidth=79
+"     \ set expandtab
+"     \ set autoindent
+"     \ set fileformat=unix

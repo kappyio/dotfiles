@@ -1,0 +1,10 @@
+# Get vm stats, like max heap, etc
+# Linux
+java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
+# MacOS
+java -XX:+PrintFlagsFinal -version | grep -iE 'heapsize|permsize|threadstacksize'
+# Win
+C:\>java -XX:+PrintFlagsFinal -version | findstr /i "HeapSize PermSize ThreadStackSize"
+
+
+

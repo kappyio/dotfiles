@@ -1,0 +1,2 @@
+# Get more info from apply
+puppet apply -v -e /etc/puppet/environments/production/manifests/site.pp --debug

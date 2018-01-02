@@ -1,0 +1,42 @@
+# To terminate a hung session
+Hit Enter + ~? to get a menu of supported escape sequences
+The important one is ~. to terminate the session
+
+# To implement a for loop:
+for file in *;
+do 
+    echo $file found;
+done
+
+# To implement a case command:
+case "$1"
+in
+    0) echo "zero found";;
+    1) echo "one found";;
+    2) echo "two found";;
+    3*) echo "something beginning with 3 found";;
+esac
+
+# Turn on debugging:
+set -x
+
+# Turn off debugging:
+set +x
+
+# Retrieve N-th piped command exit status
+printf 'foo' | fgrep 'foo' | sed 's/foo/bar/'
+echo ${PIPESTATUS[0]}  # replace 0 with N
+
+# Lock file:
+( set -o noclobber; echo > my.lock ) || echo 'Failed to create lock file'
+
+# periodically do something/check service/port/anything to come online
+# listen on localhost without db server
+# nc -l localhost 3306
+CFG_MYSQL_HOST=localhost
+until nc -z -v -w30 $CFG_MYSQL_HOST 3306
+do
+  echo "Waiting for database connection..."
+  # wait for 5 seconds before check again
+  sleep 5
+done

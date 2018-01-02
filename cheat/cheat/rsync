@@ -1,0 +1,38 @@
+# To copy files from remote to local, maintaining file properties and sym-links (-a), zipping for faster transfer (-z), verbose (-v).  
+rsync -avz host:file1 :file1 /dest/
+rsync -avz /source host:/dest
+
+# Copy files using checksum (-c) rather than time to detect if the file has changed. (Useful for validating backups). 
+rsync -avc /source/ /dest/
+
+# Copy contents of /src/foo to destination:
+
+# This command will create /dest/foo if it does not already exist
+rsync -auv /src/foo /dest
+
+# Explicitly copy /src/foo to /dest/foo
+rsync -auv /src/foo/ /dest/foo
+
+# Rsync from home on alt port
+rsync -arvz -e 'ssh -p 8888' --progress --delete vagrant@home:sd .
+
+# Exclude file contents
+ *.flac
+*.wv
+*.wav
+*.Flac
+*.FLAC
+*.cue
+*.CUE
+*.log
+*.LOG
+*.m3u
+*.ape
+*.iso
+*.ISO
+
+# Use exclude file
+--exclude-from=FILE
+
+# Use exclude one-off directory
+rsync -avHP --delete 192.168.0.106:/Users/dkaplowitz/ mbp_P --exclude=Music

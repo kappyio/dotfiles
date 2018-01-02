@@ -1,0 +1,9 @@
+# only those cases where "require" appears by itself, surrounded either by spaces, commas, etc. But never "requires", "required", etc. 
+# Since this use case is so common, Ack has a switch for it:
+ack -w require
+
+# a very handy switch to only print the filenames that matched our search.
+ack -l -w require
+
+# Ack by default returns lines it matches on. If you want to see context for the code in the results, you can use the -C flag, and provide the number of lines of context to include from above and below the match:
+ack -C 1 require

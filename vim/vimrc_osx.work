@@ -1,0 +1,148 @@
+set nocp
+call pathogen#infect()
+execute pathogen#infect()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#infect('~/.vim/bundle')
+" syntax on
+" set rtp+=~/.vim/bundle/vundle
+" call vundle#rc()
+" Vundle
+set nocompatible
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+call vundle#rc()
+Plugin 'VundleVim/Vundle.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'rodnaph/vim-color-schemes'
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'elzr/vim-json'
+Bundle 'gmarik/vundle'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'rjohnsondev/vim-compiler-go'
+Bundle 'fatih/vim-go'
+Bundle 'dgryski/vim-godef'
+Bundle 'hashivim/vim-hashicorp-tools'
+Bundle 'fatih/vim-hclfmt'
+Bundle 'tpope/vim-sensible'
+Bundle 'juliosueiras/vim-terraform-completion'
+" Bundle 'puppetlabs/puppet-syntax-vim'
+Bundle 'rodjek/vim-puppet'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'hdima/python-syntax'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-perl/vim-perl'
+Bundle 'wincent/command-t'
+
+
+
+filetype plugin indent on
+set modeline
+set sessionoptions-=options
+" show a visual line under the cursor's current line
+set cursorline
+set colorcolumn=79 " display a vertical ruler 
+"hi cursorline   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi CursorLineNr   term=bold ctermfg=Yellow gui=bold guifg=Yellow
+"hi cursorcolumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+" Highlight the current line
+"set cursorline
+autocmd InsertEnter * highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue
+autocmd InsertLeave * highlight CursorLine guifg=white guibg=darkblue ctermfg=white ctermbg=darkblue
+"end cursorline
+" show the matching part of the pair for [] {} and ()
+set showmatch
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+set textwidth=79  " lines longer than 79 spaces will be broken
+set shiftwidth=4  " operation >> indents 4 spaces; << unindents 4 spaces 
+set tabstop=4     " a hard TAB displays as 4 spaces
+set expandtab     " insert spaces when hitting TABs
+set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+set shiftround    " round indent to multiple of 'shiftwidth'
+set autoindent    " align the new line indent with the previous line
+
+syntax enable
+set background=dark
+" set t_Co=16
+colorscheme solarized
+set number
+set ruler
+set ignorecase
+set smartcase
+" solarized options 
+let g:solarized_termcolors = 256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+" let g:solarized_termtrans = 1
+
+"Vundle
+set nocompatible
+
+" Below is from learn Puppet VM
+" turn off auto adding comments on next line
+" so you can cut and paste reliably
+" http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
+set fo=tcq
+set bg=dark
+" set default comment color to cyan instead of darkblue
+" which is not very legible on a black background
+highlight comment ctermfg=cyan
+
+highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
+match LiteralTabs /\s\  /
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
+
+" Set up puppet manifest and spec options
+au BufRead,BufNewFile *.pp
+  \ set filetype=puppet
+au BufRead,BufNewFile *_spec.rb
+  \ nmap <F8> :!rspec --color %<CR>
+au BufRead,BufNewFile *.erb
+  \ set filetype=ruby
+
+"Begin powerline
+source /Users/dkaplowitz/.vim/plugin/powerline.vim
+"source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+set laststatus=2 " Always display the statusline in all windows 
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+"End powerline
+
+if $VIM_CRONTAB == "true"
+    set nobackup
+    set nowritebackup
+endif
+"Begin go
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+"hclfmt
+let g:hcl_fmt_autosave = 0
+let g:tf_fmt_autosave = 0
+let g:nomad_fmt_autosave = 0
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:golang_goroot = "/usr/local/go"
+" Hashi Terraform
+let g:terraform_align=1
+" This below had extra dependencies, I'm leaving it out for now. Might be
+" overkill anyway.
+" autocmd FileType go autocmd BufWritePre <buffer> Fmt
+"End go
+if has("gui_running")
+   let s:uname = system("uname")
+   if s:uname == "Darwin\n"
+      set guifont=Inconsolata\ for\ Powerline:h15
+   endif
+endif

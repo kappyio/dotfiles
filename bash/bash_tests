@@ -1,0 +1,22 @@
+gnudate() {
+    if hash gdate 2>/dev/null; then
+        gdate "$@"
+    else
+        date "$@"
+    fi
+}
+
+command -v foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+command -v git >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+type git >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+hash git 2>/dev/null || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }\n
+
+
+# Bash function:
+command_exists () {
+    type "$1" &> /dev/null ;
+}
+# Source the above function:
+if command_exists mvim ; then
+    export VISUAL="mvim --nofork"
+fi

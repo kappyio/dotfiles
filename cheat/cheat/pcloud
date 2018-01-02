@@ -1,0 +1,27 @@
+# Naming
+[{color}-{environment}{datacenter}{availabilityzone}-{function}-{number}]
+
+# Environments
+o: ops
+p: production
+s: staging
+d: development (deprecated)
+i: integration (deprecated)
+
+# Datacenter
+v - us-east-1 - Virginia
+o - us-west-2 - Oregon
+e - eu-west-1 - Ireland
+l - eu-west-2 - London
+t - ap-northeast-1 - Tokyo
+s - ap-southeast-1 - Singapore
+b - sa-east-1 - Brazil
+g - us-gov-west-1 - GovCloud
+
+# Monitor traffic for $HOST through $GATEWAY
+# On gateway in the same AZ
+tcpdump -ni eth0 host $HOST_IP
+# Then run curl cmds, whatever, on the host to monitor
+
+# Check if gateway and NAT are set up on a host
+iptables -t nat -L -nv
