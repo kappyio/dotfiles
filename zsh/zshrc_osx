@@ -56,7 +56,6 @@ plugins=(zsh-autosuggestions)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:$HOME/bin"
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH=$PATH:$EC2_HOME/bin:$BLACKBOX_HOME
-#export PATH=$PATH:$HOME/git/palantir/pcloud/stack_setup/pt-pyaws/
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -103,9 +102,7 @@ test -e "$HOME/.bin/tmuxinator.sh" && source "$HOME/.bin/tmuxinator.zsh"
 # export ca_certificates_file=/etc/pki/tls/certs/ca-bundle.crt
 export PATH="/usr/local/go/bin:$PATH"
 export AWS_DEFAULT_REGION=us-gov-west-1
-export BLACKBOX_HOME=$HOME/git/palantir/pcloud/puppet-modules/modules/pt_blackbox/files/blackbox
 export ANSIBLE_HOSTS=$HOME/git/dotfiles/vudkapz/dotfiles/ansible/hosts
-export PCLOUD_CODE=$HOME/git/palantir/pcloud
 export LESS=-RFX
 # export CURL_CA_BUNDLE="/etc/pki/tls/certs/ca-bundle.crt"
 
