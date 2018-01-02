@@ -1,9 +1,9 @@
 - clean: ['~']
 
 - link:
-    ~/.profile: profile
-    ~/.bashrc: bashrc
-    ~/.bash_logout: bash_logout
+    ~/.profile: bash/profile
+    ~/.bashrc: bash/bashrc
+    ~/.bash_logout: bash/bash_logout
     ~/.vim: vim/vim
     ~/.htoprc: htop/htoprc
     ~/.tmux.conf: tmux/tmux.conf
