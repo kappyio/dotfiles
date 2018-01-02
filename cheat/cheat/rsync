@@ -35,4 +35,4 @@ rsync -arvz -e 'ssh -p 8888' --progress --delete vagrant@home:sd .
 --exclude-from=FILE
 
 # Use exclude one-off directory
-rsync -avHP --delete 192.168.0.106:/Users/dkaplowitz/ mbp_P --exclude=Music
+rsync -avHP --delete 192.168.0.106:/home/some_user/ mbp_P --exclude=Music
