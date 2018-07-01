@@ -4,7 +4,7 @@
 GIT_DIR=dotfiles/ansible
 
 sudo apt-get install -y git python-pip python-dev
-sudo pip install --user ansible
+sudo pip install ansible
 
 if [ ! -d "$GIT_DIR" ]; then
     git clone https://github.com/kappyio/dotfiles.git
