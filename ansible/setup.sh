@@ -13,3 +13,7 @@ else
     git pull
     ansible-playbook install.yml --become -K -c local -i "localhost,"
 fi
+
+Install oh-my-zsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
