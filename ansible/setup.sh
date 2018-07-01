@@ -9,18 +9,20 @@ sudo pip install ansible
 if [ ! -d "$GIT_DIR" ]; then
     git clone https://github.com/kappyio/dotfiles.git
     cd $GIT_DIR
-    ansible-playbook install.yml --become -K -c local -i "localhost,"
 else
     cd $GIT_DIR
     git pull
-    ansible-playbook install.yml --become -K -c local -i "localhost,"
 fi
+
+cd $GIT_DIR
+ansible-playbook install.yml --become -K -c local -i "localhost,"
 
 # Install oh-my-zsh
 zsh() {
     if hash zsh 2>/dev/null; then
         echo "z shell found"
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        curl -OL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+        bash install.sh
     else
         echo "z shell not found"
     fi
