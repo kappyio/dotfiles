@@ -8,6 +8,8 @@ pip install --user ansible
 
 if [ ! -d "$GIT_DIR" ]; then
     git clone https://github.com/kappyio/dotfiles.git
+    cd $GIT_DIR
+    ansible-playbook install.yml --become -K -c local -i "localhost,"
 else
     cd $GIT_DIR
     git pull
