@@ -14,6 +14,14 @@ else
     ansible-playbook install.yml --become -K -c local -i "localhost,"
 fi
 
-Install oh-my-zsh
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+# Install oh-my-zsh
+zsh() {
+    if hash zsh 2>/dev/null; then
+        echo "z shell found"
+        sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    else
+        echo "z shell not found"
+    fi
+}
 
+zsh
