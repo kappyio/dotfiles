@@ -1,7 +1,15 @@
 #!/bin/sh
 # wget -O- https://raw.githubusercontent.com/kappyio/dotfiles/master/ansible/setup.sh | sh
+
+GIT_DIR=dotfiles/ansible
+
 sudo apt-get install -y git python-pip python-dev
-sudo pip install ansible
-git clone https://github.com/kappyio/dotfiles.git
-cd dotfiles/ansible
-ansible-playbook install.yml --become -K -c local -i "localhost,"
+pip install --user ansible
+
+if [ ! -d "$GIT_DIR" ]; then
+    git clone https://github.com/kappyio/dotfiles.git
+else
+    cd $GIT_DIR
+    git pull
+    ansible-playbook install.yml --become -K -c local -i "localhost,"
+fi
