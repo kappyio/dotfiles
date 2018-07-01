@@ -1,0 +1,62 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Ansible apt with_items example
+    apt:
+      name: "{{ item }}"
+      update_cache: true
+      state: present
+    with_items:
+      - 'git'
+      - 'nginx'
+      - 'nmap'
+      - 'zsh'
+      - 'vim'
+      - 'curl'
+      - 'unzip'
+# dev
+      - 'ipython'
+      - 'git'
+      - 'python-setuptools'
+      - 'less'
+# admin
+      - 'openssh-server'
+      - 'nmap'
+      - 'htop'
+      - 'tree'
+      - 'iotop'
+      - 'sysstat'
+      - 'screen'
+      - 'tmux'
+      - 'inetutils-traceroute'
+      - 'sshfs'
+      - 'cryptsetup'
+      - 'traceroute'
+      - 'powertop'
+      - 'aircrack-ng'
+      - 'dns2tcp'
+      - 'autofs'
+      - 'ecryptfs-utils'
+      - 'lm-sensors'
+      - 'gpm'
+      - 'whois'
+      - 'dstat'
+      - 'iftop'
+      - 'nload'
+      - 'speedometer'
+      - 'keepassx'
+      - 'virtualbox'
+      - 'qemu'
+      - 'chromium-browser'
+      - 'terminator'
+      - 'firefox'
+      - 'vlc'
+      - 'audacity'
+      - 'filezilla'
+      - 'libreoffice'
+      - 'golang-go'
+      - 'gparted'
+      - 'simple-scan'
+      - 'virt-manager'
+      - 'wireshark'
+      - 'gimp'
