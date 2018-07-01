@@ -60,7 +60,6 @@
       - 'gimp'
       - 'vagrant'
       - 'gnupg'
-      - 'ansible-doc'
       - 'awscli'
       - 'dos2unix'
       - 'ec2-api-tools'
