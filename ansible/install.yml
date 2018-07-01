@@ -60,3 +60,4 @@
       - 'virt-manager'
       - 'wireshark'
       - 'gimp'
+      - 'vagrant'
