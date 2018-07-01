@@ -18,7 +18,7 @@ fi
 zsh() {
     if hash zsh 2>/dev/null; then
         echo "z shell found"
-        sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     else
         echo "z shell not found"
     fi
