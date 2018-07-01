@@ -5,4 +5,4 @@ sudo apt-get install -y git python-pip python-dev
 sudo pip install ansible
 git clone https://github.com/kappyio/dotfiles.git
 cd dotfiles/ansible
-ansible-playbook install.yml --sudo -K -c local -i "localhost,"
+ansible-playbook install.yml --become -K -c local -i "localhost,"

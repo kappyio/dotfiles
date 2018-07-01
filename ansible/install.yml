@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   tasks:
-  - name: Ansible apt with_items example
+  - name: Ansible apt install items
     apt:
       name: "{{ item }}"
       update_cache: true
